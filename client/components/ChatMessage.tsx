@@ -15,7 +15,7 @@ export function ChatMessage({
     <div className={`flex ${isUser ? "justify-end" : "justify-start"} mb-4`}>
       {!isUser && (
         <div className="mr-2 flex-shrink-0 w-8 h-8 flex items-center justify-center">
-          <span className="w-8 h-8 sm:w-8 sm:h-8 rounded-full object-cover border border-gray-300 p-1 bg-white shadow-sm" ><img src="./public/flower.png" alt="" /></span>
+         <span className="w-8 h-8 sm:w-8 sm:h-8 rounded-full object-cover border border-gray-300 p-1 bg-white shadow-sm">🌸</span>
         </div>
       )}
 
