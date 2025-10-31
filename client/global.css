@@ -1,0 +1,184 @@
+/** @import must precede all other statements */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Tailwind CSS theme - MiraMind soothing pastel colors
+   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
+   * A different format will require also updating the theme in tailwind.config.ts.
+  */
+  :root {
+    --background: 270 30% 97%;
+    --foreground: 260 20% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 260 20% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 260 20% 20%;
+
+    --primary: 270 50% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 300 100% 88%;
+    --secondary-foreground: 260 20% 20%;
+
+    --muted: 210 50% 85%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 200 100% 70%;
+    --accent-foreground: 260 20% 20%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 270 30% 90%;
+    --input: 270 30% 95%;
+    --ring: 270 50% 60%;
+
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* MiraMind custom colors */
+    --user-message: 200 100% 75%;
+    --ai-message: 320 100% 85%;
+    --soft-lavender: 270 30% 90%;
+    --soft-pink: 330 100% 90%;
+    --soft-blue: 200 100% 85%;
+  }
+
+  .dark {
+    --background: 270 20% 15%;
+    --foreground: 0 0% 95%;
+
+    --card: 270 20% 20%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 270 20% 20%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 270 70% 65%;
+    --primary-foreground: 270 20% 15%;
+
+    --secondary: 300 100% 70%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 270 20% 35%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 200 100% 65%;
+    --accent-foreground: 0 0% 95%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 270 20% 25%;
+    --input: 270 20% 30%;
+    --ring: 270 70% 65%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* MiraMind custom colors dark mode */
+    --user-message: 200 100% 70%;
+    --ai-message: 320 100% 75%;
+    --soft-lavender: 270 20% 30%;
+    --soft-pink: 330 100% 75%;
+    --soft-blue: 200 100% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", "Poppins", sans-serif;
+    background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--soft-lavender)) 100%);
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Poppins", "Inter", sans-serif;
+    font-weight: 700;
+  }
+
+  :where(p, span, li, h1, h2, h3, h4, h5, h6, a, button, label, td, th) {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  pre,
+  code {
+    overflow-x: auto;
+    white-space: pre;
+  }
+}
+
+@layer components {
+  .chat-bubble {
+    @apply rounded-2xl px-4 py-3 text-sm max-w-xs break-words animate-fade-in;
+  }
+
+  .chat-bubble-user {
+    @apply bg-soft-blue text-foreground ml-auto;
+  }
+
+  .chat-bubble-ai {
+    @apply bg-soft-pink text-foreground mr-auto;
+  }
+
+  .btn-primary {
+    @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-semibold transition-all duration-200 hover:shadow-lg hover:scale-105 active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 rounded-full bg-secondary text-secondary-foreground font-medium transition-all duration-200 hover:bg-opacity-80;
+  }
+
+  .mood-selector {
+    @apply flex gap-3 justify-center;
+  }
+
+  .mood-btn {
+    @apply text-2xl cursor-pointer transition-all duration-200 hover:scale-125 active:scale-95;
+  }
+
+  .loading-dots {
+    @apply flex gap-2 items-center;
+  }
+
+  .loading-dot {
+    @apply w-2 h-2 rounded-full bg-primary;
+  }
+}
